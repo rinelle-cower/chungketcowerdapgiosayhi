@@ -1,551 +1,512 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ĐẠP GIÓ 2026 - BÌNH CHỌN HỒI SINH</title>
+    <style>
+        :root {
+            --primary: #ff3366;
+            --primary-gradient: linear-gradient(135deg, #ff3366 0%, #ff6b81 100%);
+            --secondary-gradient: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
+            --bg-dark: #0b091a;
+            --bg-card: rgba(255, 255, 255, 0.06);
+            --border-card: rgba(255, 255, 255, 0.12);
+            --text-main: #ffffff;
+            --text-muted: #a0a0c0;
+            --gold: #ffd700;
+        }
 
-<title>Bình chọn | COWER ĐẠP GIÓ "SAY HI"</title>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', system-ui, -apple-system, Roboto, sans-serif;
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        body {
+            background-color: var(--bg-dark);
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(255, 51, 102, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(108, 92, 231, 0.15) 0%, transparent 40%);
+            background-attachment: fixed;
+            color: var(--text-main);
+            min-height: 100vh;
+            padding-bottom: 60px;
+        }
 
-<style>
+        header {
+            text-align: center;
+            padding: 45px 20px 25px;
+            background: rgba(11, 9, 26, 0.7);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-card);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:"Poppins",sans-serif;
-}
+        .show-title {
+            font-size: 2.8rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            background: linear-gradient(45deg, #ffffff, #ff3366, #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 12px;
+            text-shadow: 0 0 30px rgba(255, 51, 102, 0.3);
+        }
 
-body{
-background:
-linear-gradient(rgba(5,10,20,.88),rgba(5,10,20,.95)),
-radial-gradient(circle at top,#224a88 0%,transparent 40%),
-radial-gradient(circle at bottom right,#50326f 0%,transparent 35%),
-#08121d;
+        .season-badge {
+            display: inline-block;
+            background: var(--primary-gradient);
+            padding: 6px 24px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 20px rgba(255, 51, 102, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
 
-color:white;
-min-height:100vh;
-}
+        .page-subtitle {
+            margin-top: 15px;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
 
-.container{
-max-width:1200px;
-margin:auto;
-padding:40px 20px;
-}
+        .container {
+            max-width: 1100px;
+            margin: 30px auto 0;
+            padding: 0 20px;
+        }
 
-.header{
-text-align:center;
-margin-bottom:40px;
-}
+        .info-card {
+            background: rgba(20, 16, 45, 0.6);
+            border: 1px solid var(--border-card);
+            border-radius: 20px;
+            padding: 25px;
+            backdrop-filter: blur(10px);
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
 
-.header h1{
-font-size:42px;
-background:linear-gradient(90deg,#2ba9ff,#8be8ff);
--webkit-background-clip:text;
-color:transparent;
-}
+        .info-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-.header p{
-color:#aaa;
-margin-top:10px;
-}
+        .info-desc {
+            color: #d1d1e0;
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
 
-.select-box{
-margin:30px auto;
-max-width:300px;
-}
+        .rules-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 12px;
+            margin-top: 15px;
+        }
 
-select{
-width:100%;
-padding:14px;
-border:none;
-border-radius:14px;
-background:#16253b;
-color:white;
-font-size:16px;
-}
+        .rule-item {
+            background: rgba(255, 255, 255, 0.04);
+            padding: 12px 16px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-.tabs{
-display:flex;
-justify-content:center;
-gap:20px;
-margin:35px 0;
-flex-wrap:wrap;
-}
+        .timer-container {
+            background: linear-gradient(135deg, rgba(255, 51, 102, 0.15) 0%, rgba(108, 92, 231, 0.15) 100%);
+            border: 1px solid rgba(255, 51, 102, 0.3);
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            margin-top: 20px;
+        }
 
-.tab{
-padding:15px 28px;
-border-radius:15px;
-cursor:pointer;
-background:#16253b;
-transition:.3s;
-font-weight:600;
-}
+        .timer-label {
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #d1d1e0;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
 
-.tab.active{
-background:linear-gradient(90deg,#2ba9ff,#4bc9ff);
-}
+        .timer-display {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--gold);
+            letter-spacing: 1px;
+            font-variant-numeric: tabular-nums;
+        }
 
-.tab-content{
-display:none;
-animation:fade .4s;
-}
+        .timer-warning {
+            color: #ff4757;
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-top: 8px;
+            display: none;
+            animation: pulse 2s infinite;
+        }
 
-.tab-content.active{
-display:block;
-}
+        @keyframes pulse {
+            0% { opacity: 0.8; }
+            50% { opacity: 1; }
+            100% { opacity: 0.8; }
+        }
 
-@keyframes fade{
-from{
-opacity:0;
-transform:translateY(15px);
-}
-to{
-opacity:1;
-transform:none;
-}
-}
+        .closed-banner {
+            display: none;
+            background: rgba(255, 71, 87, 0.15);
+            border: 2px dashed #ff4757;
+            border-radius: 20px;
+            padding: 40px 20px;
+            text-align: center;
+            margin: 30px 0;
+        }
 
-.section{
-background:rgba(255,255,255,.05);
-border-radius:22px;
-padding:25px;
-margin-bottom:30px;
-backdrop-filter:blur(18px);
-}
+        .closed-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #ff6b81;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
 
-.section h2{
-margin-bottom:12px;
-color:#8ddfff;
-}
+        .closed-subtitle {
+            color: #d1d1e0;
+            font-size: 1.1rem;
+        }
 
-.note{
-background:#15314d;
-padding:18px;
-border-radius:14px;
-margin:20px 0;
-line-height:1.7;
-}
+        .grid-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
 
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
-gap:20px;
-margin-top:25px;
-}
+        .section-heading {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
 
-.card{
-background:rgba(255,255,255,.05);
-border-radius:18px;
-padding:20px;
-text-align:center;
-transition:.3s;
-}
+        .user-quota-badge {
+            background: rgba(255, 215, 0, 0.15);
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
 
-.card:hover{
-transform:translateY(-6px);
-}
+        .candidate-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+            gap: 22px;
+        }
 
-.avatar{
-width:90px;
-height:90px;
-border-radius:50%;
-background:#29445e;
-margin:auto;
-margin-bottom:15px;
-}
+        .candidate-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 20px;
+            padding: 24px 20px;
+            text-align: center;
+            backdrop-filter: blur(8px);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
 
-.vote{
-margin:12px 0;
-font-weight:600;
-color:#7ce3ff;
-}
+        .candidate-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 51, 102, 0.5);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 51, 102, 0.2);
+        }
 
-button{
-width:100%;
-padding:12px;
-border:none;
-border-radius:12px;
-background:linear-gradient(90deg,#2ba9ff,#5ad7ff);
-color:white;
-font-weight:600;
-cursor:pointer;
-}
+        .avatar-box {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+            margin: 0 auto 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            border: 3px solid var(--primary);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
 
-.subtitle{
-margin-top:10px;
-color:#bbb;
-}
+        .candidate-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 12px;
+        }
 
-.award{
-margin-top:35px;
-}
+        .vote-box {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            padding: 10px;
+            margin-bottom: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
 
-.award h3{
-color:#79d8ff;
-margin-bottom:8px;
-}
+        .vote-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
 
-.info{
-font-size:14px;
-color:#b9c2d1;
-margin-bottom:20px;
-line-height:1.6;
-}
+        .vote-count {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--gold);
+        }
 
-</style>
+        .vote-btn {
+            background: var(--primary-gradient);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            width: 100%;
+            box-shadow: 0 4px 15px rgba(255, 51, 102, 0.3);
+        }
 
+        .vote-btn:disabled {
+            background: #33334d;
+            color: #777799;
+            cursor: not-allowed;
+            box-shadow: none;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        @media (max-width: 600px) {
+            .show-title { font-size: 2.1rem; }
+            .page-subtitle { font-size: 1.2rem; }
+            .candidate-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 15px; }
+            .avatar-box { width: 85px; height: 85px; font-size: 2.3rem; }
+            .candidate-name { font-size: 1.05rem; }
+            .timer-display { font-size: 1.3rem; }
+            .grid-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="container">
-
-<div class="header">
-
-<h1>🌪️ COWER ĐẠP GIÓ "SAY HI"</h1>
-
-<p>CỔNG BÌNH CHỌN CHÍNH THỨC</p>
-
-<div class="select-box">
-
-<select>
-
-<option>🏆 Mùa giải 2026</option>
-
-</select>
-
-</div>
-
-</div>
-
-<div class="tabs">
-
-<div class="tab active" onclick="openTab('revive',this)">
-❤️ BÌNH CHỌN HỒI SINH
-</div>
-
-<div class="tab" onclick="openTab('award',this)">
-🏆 BÌNH CHỌN CÁC GIẢI THƯỞNG
-</div>
-
-</div>
-
-<div id="revive" class="tab-content active">
-
-<div class="section">
-
-<h2>❤️ Bình chọn hồi sinh</h2>
-
-<p class="subtitle">
-
-Đối với mùa giải năm 2026, sẽ có <b>02 thí sinh có số lượt bình chọn cao nhất</b> quay trở lại hành trình.
-
-</p>
-
-<div class="note">
-
-🗓️ Thời gian bình chọn
-
-<br><br>
-
-⏳ Còn lại
-
-<h2 id="countdown">
-07 ngày 00:00:00
-</h2>
-
-<hr style="margin:15px 0;border-color:#335">
-
-❤️ Bạn còn
-
-<h2 id="remainVote">
-
-3 / 3 lượt
-
-</h2>
-
-<hr style="margin:15px 0;border-color:#335">
-
-🙈 48 giờ cuối cùng sẽ ẩn toàn bộ số vote.
-
-</div>
-
-<div class="grid">
-
-<script>
-
-for(let i=1;i<=12;i++){
-
-document.write(`
-
-<div class="card">
-
-<div class="avatar"></div>
-
-<h3>THÍ SINH ${i}</h3>
-
-<div class="vote">❤️ 0</div>
-
-<button>BÌNH CHỌN</button>
-
-</div>
-
-`);
-
-}
-
-</script>
-
-</div>
-
-</div>
-
-</div>
-
-<div id="award" class="tab-content">
-
-<div class="section">
-
-<h2>🏆 Bình chọn các giải thưởng</h2>
-
-<div class="award">
-
-<h3>👥 02 SUẤT THÀNH ĐOÀN</h3>
-
-<p class="info">
-
-100% số vote của khán giả quyết định.<br>
-
-05 lượt bình chọn mỗi 24 giờ.
-
-</p>
-
-<div class="grid" id="teamGrid"></div>
-
-</div>
-
-<div class="award">
-
-<h3>👑 QUÁN QUÂN "NGƯỜI ĐẠP GIÓ"</h3>
-
-<p class="info">
-
-20% số vote của khán giả.<br>
-
-05 lượt mỗi 12 giờ.
-
-</p>
-
-<div class="grid" id="championGrid"></div>
-
-</div>
-
-<div class="award">
-
-<h3>🥈 Á QUÂN "NGƯỜI ĐẠP GIÓ"</h3>
-
-<p class="info">
-
-20% số vote của khán giả.<br>
-
-05 lượt mỗi 12 giờ.
-
-</p>
-
-<div class="note">
-
-Các bạn hãy suy nghĩ, bình chọn thật công tâm nhé!<br><br>
-
-Chỉ 06 người được xác nhận Thành đoàn mới được xét Quán quân và Á quân.
-
-</div>
-
-<div class="grid" id="runnerGrid"></div>
-
-</div>
-  <!-- GIÓ-ER ĐƯỢC YÊU THÍCH NHẤT -->
-
-<div class="award">
-
-<h3>❤️ GIÓ-ER ĐƯỢC YÊU THÍCH NHẤT</h3>
-
-<p class="info">
-
-100% số vote của Khán giả quyết định.<br>
-03 lượt bình chọn mỗi 24 giờ.
-
-</p>
-
-<div class="grid" id="favoriteGrid"></div>
-
-</div>
-
-
-
-<!-- MÀN TRÌNH DIỄN XUẤT SẮC NHẤT -->
-
-<div class="award">
-
-<h3>🎭 MÀN TRÌNH DIỄN XUẤT SẮC NHẤT</h3>
-
-<p class="info">
-
-20% số vote của Khán giả quyết định.<br>
-03 lượt bình chọn mỗi 24 giờ.
-
-</p>
-
-<div class="grid" id="performanceGrid"></div>
-
-</div>
-
-
-
-<!-- ĐỘI TRƯỞNG -->
-
-<div class="award">
-
-<h3>🧭 ĐỘI TRƯỞNG ĐẠP GIÓ XUẤT SẮC NHẤT</h3>
-
-<p class="info">
-
-60% số vote của các thí sinh trong chương trình
-+
-10% số vote của Khán giả.
-
-</p>
-
-<div class="grid" id="captainGrid"></div>
-
-</div>
-
-
-
-<!-- GIÓ-ER TOÀN NĂNG -->
-
-<div class="award">
-
-<h3>✨ GIÓ-ER TOÀN NĂNG</h3>
-
-<p class="info">
-
-20% số vote của Khán giả quyết định.<br>
-
-03 lượt bình chọn mỗi 24 giờ.
-
-</p>
-
-<div class="grid" id="allroundGrid"></div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<script>
-
-function openTab(id,el){
-
-document.querySelectorAll(".tab-content").forEach(x=>x.classList.remove("active"));
-
-document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
-
-document.getElementById(id).classList.add("active");
-
-el.classList.add("active");
-
-}
-
-function createCards(id,total){
-
-let html="";
-
-for(let i=1;i<=total;i++){
-
-html+=`
-
-<div class="card">
-
-<div class="avatar"></div>
-
-<h3>THÍ SINH ${i}</h3>
-
-<div class="vote">❤️ 0</div>
-
-<button>BÌNH CHỌN</button>
-
-</div>
-
-`;
-
-}
-
-document.getElementById(id).innerHTML=html;
-
-}
-
-createCards("teamGrid",12);
-
-createCards("championGrid",12);
-
-createCards("runnerGrid",12);
-
-createCards("favoriteGrid",12);
-
-createCards("performanceGrid",7);
-
-createCards("captainGrid",7);
-
-createCards("allroundGrid",5);
-  const endTime=new Date();
-
-endTime.setDate(endTime.getDate()+7);
-
-function updateCountdown(){
-
-const now=new Date();
-
-let diff=endTime-now;
-
-if(diff<=0){
-
-document.getElementById("countdown").innerHTML=
-"🔒 ĐÃ ĐÓNG CỔNG BÌNH CHỌN";
-
-return;
-
-}
-
-const day=Math.floor(diff/86400000);
-
-diff%=86400000;
-
-const hour=Math.floor(diff/3600000);
-
-diff%=3600000;
-
-const min=Math.floor(diff/60000);
-
-diff%=60000;
-
-const sec=Math.floor(diff/1000);
-
-document.getElementById("countdown").innerHTML=
-
-`${day} ngày ${hour} giờ ${min} phút ${sec} giây`;
-
-}
-
-setInterval(updateCountdown,1000);
-
-updateCountdown();
-
-</script>
-
+    <header>
+        <div class="show-title">ĐẠP GIÓ</div>
+        <div class="season-badge">MÙA GIẢI 2026</div>
+        <div class="page-subtitle">🔥 BÌNH CHỌN HỒI SINH 🔥</div>
+    </header>
+
+    <div class="container">
+
+        <div class="info-card">
+            <div class="info-title">
+                <span>📋</span> THỂ LỆ BÌNH CHỌN HỒI SINH
+            </div>
+            <div class="info-desc">
+                Đối với mùa giải năm 2026, sẽ có <strong>02 thí sinh</strong> có số lượt bình chọn cao nhất từ khán giả được chính thức quay trở lại hành trình Đạp Gió!
+            </div>
+            <ul class="rules-list">
+                <li class="rule-item">
+                    <span>🗳️</span>
+                    <span><strong>Giới hạn:</strong> Tối đa 03 lượt vote / 24 giờ cho mỗi khán giả.</span>
+                </li>
+                <li class="rule-item">
+                    <span>⏱️</span>
+                    <span><strong>Thời gian:</strong> Mở cổng bình chọn duy nhất trong 07 ngày.</span>
+                </li>
+                <li class="rule-item">
+                    <span>🔒</span>
+                    <span><strong>Bảo mật:</strong> 48 giờ cuối cùng sẽ tự động ẩn tổng số lượt vote.</span>
+                </li>
+                <li class="rule-item">
+                    <span>🛡️</span>
+                    <span><strong>Chống gian lận:</strong> Hệ thống tự động ghi nhớ thiết bị & thời gian vote.</span>
+                </li>
+            </ul>
+
+            <div id="timer-box" class="timer-container">
+                <div class="timer-label">Thời gian còn lại của cổng bình chọn</div>
+                <div id="countdown" class="timer-display">Đang tải thời gian...</div>
+                <div id="hide-vote-warning" class="timer-warning">
+                    ⚠️ HỆ THỐNG ĐÃ ẨN SỐ PHIẾU BÌNH CHỌN TRONG 48 GIỜ CUỐI CÙNG DÀNH CHO CÁC THÍ SINH!
+                </div>
+            </div>
+        </div>
+
+        <div id="closed-banner" class="closed-banner">
+            <div class="closed-title">🔒 CỔNG BÌNH CHỌN HỒI SINH ĐÃ CHÍNH THỨC ĐÓNG</div>
+            <div class="closed-subtitle">Cảm ơn hàng triệu khán giả đã tham gia bình chọn cho các thí sinh Đạp Gió 2026! Kết quả chính thức sẽ được công bố trong tập sóng tiếp theo.</div>
+        </div>
+
+        <div id="voting-section">
+            <div class="grid-header">
+                <div class="section-heading">DANH SÁCH THÍ SINH</div>
+                <div id="user-quota" class="user-quota-badge">Đang kiểm tra lượt vote...</div>
+            </div>
+
+            <div id="candidate-grid" class="candidate-grid"></div>
+        </div>
+
+    </div>
+
+    <script>
+        const SEVEN_DAYS_MS = 7 * 24 * 60 * 60 * 1000;
+        const FORTY_EIGHT_HOURS_MS = 48 * 60 * 60 * 1000;
+        const TWENTY_FOUR_HOURS_MS = 24 * 60 * 60 * 1000;
+        const MAX_DAILY_VOTES = 3;
+
+        if (!localStorage.getItem('revival_start_time')) {
+            localStorage.setItem('revival_start_time', Date.now());
+        }
+        const startTime = parseInt(localStorage.getItem('revival_start_time'));
+        const endTime = startTime + SEVEN_DAYS_MS;
+
+        const defaultCandidates = [
+            { id: 1, name: "Thí Sinh 01", votes: 1240 },
+            { id: 2, name: "Thí Sinh 02", votes: 980 },
+            { id: 3, name: "Thí Sinh 03", votes: 2150 },
+            { id: 4, name: "Thí Sinh 04", votes: 1730 },
+            { id: 5, name: "Thí Sinh 05", votes: 890 },
+            { id: 6, name: "Thí Sinh 06", votes: 1420 },
+            { id: 7, name: "Thí Sinh 07", votes: 1910 },
+            { id: 8, name: "Thí Sinh 08", votes: 1100 },
+            { id: 9, name: "Thí Sinh 09", votes: 1650 },
+            { id: 10, name: "Thí Sinh 10", votes: 1340 }
+        ];
+
+        if (!localStorage.getItem('revival_candidates_data')) {
+            localStorage.setItem('revival_candidates_data', JSON.stringify(defaultCandidates));
+        }
+
+        function getRemainingVotes() {
+            const logs = JSON.parse(localStorage.getItem('user_revival_vote_logs') || '[]');
+            const now = Date.now();
+            const validVotes = logs.filter(timestamp => (now - timestamp) < TWENTY_FOUR_HOURS_MS);
+            localStorage.setItem('user_revival_vote_logs', JSON.stringify(validVotes));
+            return MAX_DAILY_VOTES - validVotes.length;
+        }
+
+        function voteCandidate(candidateId) {
+            const now = Date.now();
+            if (now >= endTime) {
+                alert("Cổng bình chọn đã đóng!");
+                return;
+            }
+
+            const remaining = getRemainingVotes();
+            if (remaining <= 0) {
+                alert("Bạn đã sử dụng hết 03 lượt bình chọn trong 24 giờ qua!");
+                return;
+            }
+
+            let candidates = JSON.parse(localStorage.getItem('revival_candidates_data'));
+            let targetCandidate = candidates.find(c => c.id === candidateId);
+            
+            if (targetCandidate) {
+                targetCandidate.votes++;
+                localStorage.setItem('revival_candidates_data', JSON.stringify(candidates));
+
+                let logs = JSON.parse(localStorage.getItem('user_revival_vote_logs') || '[]');
+                logs.push(now);
+                localStorage.setItem('user_revival_vote_logs', JSON.stringify(logs));
+
+                alert(`Cảm ơn bạn! Bình chọn cho "${targetCandidate.name}" thành công.`);
+                renderApp();
+            }
+        }
+
+        function renderApp() {
+            const now = Date.now();
+            const isClosed = now >= endTime;
+            const isHideVotes = (endTime - now) <= FORTY_EIGHT_HOURS_MS && !isClosed;
+            const remainingVotes = getRemainingVotes();
+
+            document.getElementById('user-quota').innerText = `Lượt vote còn lại (24h): ${remainingVotes}/${MAX_DAILY_VOTES}`;
+
+            if (isClosed) {
+                document.getElementById('timer-box').style.display = 'none';
+                document.getElementById('closed-banner').style.display = 'block';
+                document.getElementById('voting-section').style.display = 'none';
+                return;
+            }
+
+            const warningEl = document.getElementById('hide-vote-warning');
+            warningEl.style.display = isHideVotes ? 'block' : 'none';
+
+            const candidates = JSON.parse(localStorage.getItem('revival_candidates_data'));
+            const gridEl = document.getElementById('candidate-grid');
+
+            gridEl.innerHTML = candidates.map(c => `
+                <div class="candidate-card">
+                    <div>
+                        <div class="avatar-box">💃</div>
+                        <div class="candidate-name">${c.name}</div>
+                        <div class="vote-box">
+                            <div class="vote-label">${isHideVotes ? 'Trạng Thái Phiếu' : 'Tổng Phiếu Vote'}</div>
+                            <div class="vote-count">${isHideVotes ? '🔒 Ẩn số vote' : c.votes.toLocaleString('vi-VN')}</div>
+                        </div>
+                    </div>
+                    <button class="vote-btn" 
+                        ${remainingVotes <= 0 ? 'disabled' : ''} 
+                        onclick="voteCandidate(${c.id})">
+                        ${remainingVotes <= 0 ? 'Đã Hết Lượt Vote' : 'BÌNH CHỌN'}
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        function updateTimer() {
+            const now = Date.now();
+            const diff = endTime - now;
+
+            if (diff <= 0) {
+                renderApp();
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('countdown').innerText = 
+                `${days} ngày  ${hours.toString().padStart(2, '0')} giờ  ${minutes.toString().padStart(2, '0')} phút  ${seconds.toString().padStart(2, '0')} giây`;
+        }
+
+        setInterval(updateTimer, 1000);
+        updateTimer();
+        renderApp();
+    </script>
 </body>
 </html>
