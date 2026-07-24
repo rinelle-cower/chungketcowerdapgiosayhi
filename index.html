@@ -404,10 +404,10 @@
             { id: 8, name: "Thí Sinh 08", votes: 0 },
         ];
 
-        if (!localStorage.getItem('revival_candidates_data')) {
-            localStorage.setItem('revival_candidates_data', JSON.stringify(defaultCandidates));
-        }
-
+       // 2. Đổi tên key thành 'revival_candidates_v3' để ép TẤT CẢ thiết bị cập nhật lại 8 slot
+if (!localStorage.getItem('revival_candidates_v3')) {
+    localStorage.setItem('revival_candidates_v3', JSON.stringify(defaultCandidates));
+}
         function getRemainingVotes() {
             const logs = JSON.parse(localStorage.getItem('user_revival_vote_logs') || '[]');
             const now = Date.now();
