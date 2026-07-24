@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ĐẠP GIÓ 2026 - BÌNH CHỌN HỒI SINH</title>
+    <title>COWER ĐẠP GIÓ SAY HI 2026 - BÌNH CHỌN HỒI SINH</title>
     <style>
         :root {
-            --primary: #ff3366;
-            --primary-gradient: linear-gradient(135deg, #ff3366 0%, #ff6b81 100%);
-            --secondary-gradient: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
-            --bg-dark: #0b091a;
-            --bg-card: rgba(255, 255, 255, 0.06);
-            --border-card: rgba(255, 255, 255, 0.12);
+            --primary: #00d2ff;
+            --primary-gradient: linear-gradient(135deg, #0052d4 0%, #4364f7 50%, #6fb1fc 100%);
+            --secondary-gradient: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            --bg-dark: #070b19;
+            --bg-card: rgba(255, 255, 255, 0.05);
+            --border-card: rgba(0, 210, 255, 0.2);
             --text-main: #ffffff;
-            --text-muted: #a0a0c0;
-            --gold: #ffd700;
+            --text-muted: #8ab4f8;
+            --gold: #00f2fe;
         }
 
         * {
@@ -27,8 +27,8 @@
         body {
             background-color: var(--bg-dark);
             background-image: 
-                radial-gradient(circle at 20% 20%, rgba(255, 51, 102, 0.15) 0%, transparent 40%),
-                radial-gradient(circle at 80% 80%, rgba(108, 92, 231, 0.15) 0%, transparent 40%);
+                radial-gradient(circle at 20% 20%, rgba(0, 210, 255, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(67, 100, 247, 0.15) 0%, transparent 40%);
             background-attachment: fixed;
             color: var(--text-main);
             min-height: 100vh;
@@ -38,7 +38,7 @@
         header {
             text-align: center;
             padding: 45px 20px 25px;
-            background: rgba(11, 9, 26, 0.7);
+            background: rgba(7, 11, 25, 0.8);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border-card);
             position: sticky;
@@ -51,11 +51,11 @@
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 3px;
-            background: linear-gradient(45deg, #ffffff, #ff3366, #ffd700);
+            background: linear-gradient(45deg, #ffffff, #00d2ff, #00f2fe);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 12px;
-            text-shadow: 0 0 30px rgba(255, 51, 102, 0.3);
+            text-shadow: 0 0 30px rgba(0, 210, 255, 0.4);
         }
 
         .season-badge {
@@ -66,7 +66,7 @@
             font-weight: 700;
             font-size: 1.05rem;
             letter-spacing: 1px;
-            box-shadow: 0 4px 20px rgba(255, 51, 102, 0.4);
+            box-shadow: 0 4px 20px rgba(0, 210, 255, 0.4);
             border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
@@ -86,13 +86,13 @@
         }
 
         .info-card {
-            background: rgba(20, 16, 45, 0.6);
+            background: rgba(13, 22, 48, 0.6);
             border: 1px solid var(--border-card);
             border-radius: 20px;
             padding: 25px;
             backdrop-filter: blur(10px);
             margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
         .info-title {
@@ -106,7 +106,7 @@
         }
 
         .info-desc {
-            color: #d1d1e0;
+            color: #d1e3ff;
             font-size: 1rem;
             line-height: 1.7;
             margin-bottom: 15px;
@@ -124,7 +124,7 @@
             background: rgba(255, 255, 255, 0.04);
             padding: 12px 16px;
             border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(0, 210, 255, 0.15);
             font-size: 0.95rem;
             display: flex;
             align-items: center;
@@ -132,8 +132,8 @@
         }
 
         .timer-container {
-            background: linear-gradient(135deg, rgba(255, 51, 102, 0.15) 0%, rgba(108, 92, 231, 0.15) 100%);
-            border: 1px solid rgba(255, 51, 102, 0.3);
+            background: linear-gradient(135deg, rgba(0, 210, 255, 0.1) 0%, rgba(67, 100, 247, 0.15) 100%);
+            border: 1px solid rgba(0, 210, 255, 0.3);
             border-radius: 16px;
             padding: 20px;
             text-align: center;
@@ -144,7 +144,7 @@
             font-size: 0.95rem;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            color: #d1d1e0;
+            color: #d1e3ff;
             margin-bottom: 10px;
             font-weight: 600;
         }
@@ -174,8 +174,8 @@
 
         .closed-banner {
             display: none;
-            background: rgba(255, 71, 87, 0.15);
-            border: 2px dashed #ff4757;
+            background: rgba(0, 210, 255, 0.1);
+            border: 2px dashed var(--primary);
             border-radius: 20px;
             padding: 40px 20px;
             text-align: center;
@@ -185,13 +185,13 @@
         .closed-title {
             font-size: 1.8rem;
             font-weight: 800;
-            color: #ff6b81;
+            color: var(--primary);
             margin-bottom: 10px;
             text-transform: uppercase;
         }
 
         .closed-subtitle {
-            color: #d1d1e0;
+            color: #d1e3ff;
             font-size: 1.1rem;
         }
 
@@ -209,7 +209,7 @@
         }
 
         .user-quota-badge {
-            background: rgba(255, 215, 0, 0.15);
+            background: rgba(0, 242, 254, 0.1);
             border: 1px solid var(--gold);
             color: var(--gold);
             padding: 6px 16px;
@@ -239,22 +239,22 @@
 
         .candidate-card:hover {
             transform: translateY(-8px);
-            border-color: rgba(255, 51, 102, 0.5);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 51, 102, 0.2);
+            border-color: rgba(0, 210, 255, 0.8);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 210, 255, 0.3);
         }
 
         .avatar-box {
             width: 110px;
             height: 110px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             margin: 0 auto 18px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 3rem;
             border: 3px solid var(--primary);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 8px 20px rgba(0,210,255,0.2);
         }
 
         .candidate-name {
@@ -265,7 +265,7 @@
         }
 
         .vote-box {
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.4);
             border-radius: 12px;
             padding: 10px;
             margin-bottom: 18px;
@@ -297,12 +297,12 @@
             cursor: pointer;
             transition: all 0.2s ease;
             width: 100%;
-            box-shadow: 0 4px 15px rgba(255, 51, 102, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 210, 255, 0.3);
         }
 
         .vote-btn:disabled {
-            background: #33334d;
-            color: #777799;
+            background: #1e293b;
+            color: #64748b;
             cursor: not-allowed;
             box-shadow: none;
             border: 1px solid rgba(255, 255, 255, 0.05);
@@ -322,7 +322,7 @@
 <body>
 
     <header>
-        <div class="show-title">ĐẠP GIÓ</div>
+        <div class="show-title">COWER ĐẠP GIÓ "SAY HI"</div>
         <div class="season-badge">MÙA GIẢI 2026</div>
         <div class="page-subtitle">🔥 BÌNH CHỌN HỒI SINH 🔥</div>
     </header>
@@ -334,7 +334,7 @@
                 <span>📋</span> THỂ LỆ BÌNH CHỌN HỒI SINH
             </div>
             <div class="info-desc">
-                Đối với mùa giải năm 2026, sẽ có <strong>02 thí sinh</strong> có số lượt bình chọn cao nhất từ khán giả được chính thức quay trở lại hành trình Đạp Gió!
+                Đối với mùa giải năm 2026, sẽ có <strong>02 thí sinh</strong> có số lượt bình chọn cao nhất từ khán giả được chính thức quay trở lại hành trình!
             </div>
             <ul class="rules-list">
                 <li class="rule-item">
@@ -343,11 +343,11 @@
                 </li>
                 <li class="rule-item">
                     <span>⏱️</span>
-                    <span><strong>Thời gian:</strong> Mở cổng bình chọn duy nhất trong 07 ngày.</span>
+                    <span><strong>Thời gian:</strong> Mở cổng bình chọn duy nhất trong 03 ngày (72 giờ).</span>
                 </li>
                 <li class="rule-item">
                     <span>🔒</span>
-                    <span><strong>Bảo mật:</strong> 48 giờ cuối cùng sẽ tự động ẩn tổng số lượt vote.</span>
+                    <span><strong>Bảo mật:</strong> 24 giờ cuối cùng sẽ tự động ẩn tổng số lượt vote.</span>
                 </li>
                 <li class="rule-item">
                     <span>🛡️</span>
@@ -359,14 +359,14 @@
                 <div class="timer-label">Thời gian còn lại của cổng bình chọn</div>
                 <div id="countdown" class="timer-display">Đang tải thời gian...</div>
                 <div id="hide-vote-warning" class="timer-warning">
-                    ⚠️ HỆ THỐNG ĐÃ ẨN SỐ PHIẾU BÌNH CHỌN TRONG 48 GIỜ CUỐI CÙNG DÀNH CHO CÁC THÍ SINH!
+                    ⚠️ HỆ THỐNG ĐÃ ẨN SỐ PHIẾU BÌNH CHỌN TRONG 24 GIỜ CUỐI CÙNG DÀNH CHO CÁC THÍ SINH!
                 </div>
             </div>
         </div>
 
         <div id="closed-banner" class="closed-banner">
             <div class="closed-title">🔒 CỔNG BÌNH CHỌN HỒI SINH ĐÃ CHÍNH THỨC ĐÓNG</div>
-            <div class="closed-subtitle">Cảm ơn hàng triệu khán giả đã tham gia bình chọn cho các thí sinh Đạp Gió 2026! Kết quả chính thức sẽ được công bố trong tập sóng tiếp theo.</div>
+            <div class="closed-subtitle">Cảm ơn khán giả đã tham gia bình chọn cho các thí sinh! Kết quả chính thức sẽ được công bố sớm nhất có thể.</div>
         </div>
 
         <div id="voting-section">
@@ -381,28 +381,29 @@
     </div>
 
     <script>
-        const SEVEN_DAYS_MS = 7 * 24 * 60 * 60 * 1000;
-        const FORTY_EIGHT_HOURS_MS = 48 * 60 * 60 * 1000;
+        // ==========================================
+        // 🔴 ĐÃ CẬP NHẬT THỜI GIAN THÀNH 3 NGÀY (72 GIỜ)
+        // ==========================================
+        const THREE_DAYS_MS = 3 * 24 * 60 * 60 * 1000;
+        const HIDE_VOTE_TIME_MS = 24 * 60 * 60 * 1000; // Ẩn số vote trong 24 tiếng cuối
         const TWENTY_FOUR_HOURS_MS = 24 * 60 * 60 * 1000;
         const MAX_DAILY_VOTES = 3;
 
-        if (!localStorage.getItem('revival_start_time')) {
-            localStorage.setItem('revival_start_time', Date.now());
-        }
-        const startTime = parseInt(localStorage.getItem('revival_start_time'));
-        const endTime = startTime + SEVEN_DAYS_MS;
+        const startTime = new Date('2026-07-30T07:00:00+07:00').getTime(); // Mốc mở cổng cố định
+        const endTime = startTime + THREE_DAYS_MS; // Tự động cộng 3 ngày
+        // ==========================================
 
         const defaultCandidates = [
-            { id: 1, name: "Thí Sinh 01", votes: 1240 },
-            { id: 2, name: "Thí Sinh 02", votes: 980 },
-            { id: 3, name: "Thí Sinh 03", votes: 2150 },
-            { id: 4, name: "Thí Sinh 04", votes: 1730 },
-            { id: 5, name: "Thí Sinh 05", votes: 890 },
-            { id: 6, name: "Thí Sinh 06", votes: 1420 },
-            { id: 7, name: "Thí Sinh 07", votes: 1910 },
-            { id: 8, name: "Thí Sinh 08", votes: 1100 },
-            { id: 9, name: "Thí Sinh 09", votes: 1650 },
-            { id: 10, name: "Thí Sinh 10", votes: 1340 }
+            { id: 1, name: "Thí Sinh 01", votes: 0 },
+            { id: 2, name: "Thí Sinh 02", votes: 0 },
+            { id: 3, name: "Thí Sinh 03", votes: 0 },
+            { id: 4, name: "Thí Sinh 04", votes: 0 },
+            { id: 5, name: "Thí Sinh 05", votes: 0 },
+            { id: 6, name: "Thí Sinh 06", votes: 0 },
+            { id: 7, name: "Thí Sinh 07", votes: 0 },
+            { id: 8, name: "Thí Sinh 08", votes: 0 },
+            { id: 9, name: "Thí Sinh 09", votes: 0 },
+            { id: 10, name: "Thí Sinh 10", votes: 0 }
         ];
 
         if (!localStorage.getItem('revival_candidates_data')) {
@@ -419,6 +420,10 @@
 
         function voteCandidate(candidateId) {
             const now = Date.now();
+            if (now < startTime) {
+                alert("Cổng bình chọn chưa mở!");
+                return;
+            }
             if (now >= endTime) {
                 alert("Cổng bình chọn đã đóng!");
                 return;
@@ -449,7 +454,7 @@
         function renderApp() {
             const now = Date.now();
             const isClosed = now >= endTime;
-            const isHideVotes = (endTime - now) <= FORTY_EIGHT_HOURS_MS && !isClosed;
+            const isHideVotes = (endTime - now) <= HIDE_VOTE_TIME_MS && !isClosed;
             const remainingVotes = getRemainingVotes();
 
             document.getElementById('user-quota').innerText = `Lượt vote còn lại (24h): ${remainingVotes}/${MAX_DAILY_VOTES}`;
@@ -478,9 +483,9 @@
                         </div>
                     </div>
                     <button class="vote-btn" 
-                        ${remainingVotes <= 0 ? 'disabled' : ''} 
+                        ${remainingVotes <= 0 || now < startTime ? 'disabled' : ''} 
                         onclick="voteCandidate(${c.id})">
-                        ${remainingVotes <= 0 ? 'Đã Hết Lượt Vote' : 'BÌNH CHỌN'}
+                        ${now < startTime ? 'CHƯA MỞ' : (remainingVotes <= 0 ? 'HẾT LƯỢT VOTE' : 'BÌNH CHỌN')}
                     </button>
                 </div>
             `).join('');
@@ -488,7 +493,22 @@
 
         function updateTimer() {
             const now = Date.now();
+            
+            if (now < startTime) {
+                const diff = startTime - now;
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+                document.querySelector('.timer-label').innerText = "CỔNG BÌNH CHỌN SẼ MỞ SAU";
+                document.getElementById('countdown').innerText = 
+                    `${days} ngày  ${hours.toString().padStart(2, '0')} giờ  ${minutes.toString().padStart(2, '0')} phút  ${seconds.toString().padStart(2, '0')} giây`;
+                return;
+            }
+
             const diff = endTime - now;
+            document.querySelector('.timer-label').innerText = "THỜI GIAN CÒN LẠI CỦA CỔNG BÌNH CHỌN";
 
             if (diff <= 0) {
                 renderApp();
