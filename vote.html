@@ -246,11 +246,29 @@ line-height:1.6;
 
 <div class="note">
 
-🗓️ Thời gian bình chọn: 07 ngày<br>
+🗓️ Thời gian bình chọn
 
-❤️ Mỗi tài khoản được 03 lượt / 24 giờ.<br>
+<br><br>
 
-🙈 48 giờ cuối sẽ ẩn số vote của tất cả thí sinh.
+⏳ Còn lại
+
+<h2 id="countdown">
+07 ngày 00:00:00
+</h2>
+
+<hr style="margin:15px 0;border-color:#335">
+
+❤️ Bạn còn
+
+<h2 id="remainVote">
+
+3 / 3 lượt
+
+</h2>
+
+<hr style="margin:15px 0;border-color:#335">
+
+🙈 48 giờ cuối cùng sẽ ẩn toàn bộ số vote.
 
 </div>
 
@@ -347,6 +365,81 @@ Chỉ 06 người được xác nhận Thành đoàn mới được xét Quán q
 <div class="grid" id="runnerGrid"></div>
 
 </div>
+  <!-- GIÓ-ER ĐƯỢC YÊU THÍCH NHẤT -->
+
+<div class="award">
+
+<h3>❤️ GIÓ-ER ĐƯỢC YÊU THÍCH NHẤT</h3>
+
+<p class="info">
+
+100% số vote của Khán giả quyết định.<br>
+03 lượt bình chọn mỗi 24 giờ.
+
+</p>
+
+<div class="grid" id="favoriteGrid"></div>
+
+</div>
+
+
+
+<!-- MÀN TRÌNH DIỄN XUẤT SẮC NHẤT -->
+
+<div class="award">
+
+<h3>🎭 MÀN TRÌNH DIỄN XUẤT SẮC NHẤT</h3>
+
+<p class="info">
+
+20% số vote của Khán giả quyết định.<br>
+03 lượt bình chọn mỗi 24 giờ.
+
+</p>
+
+<div class="grid" id="performanceGrid"></div>
+
+</div>
+
+
+
+<!-- ĐỘI TRƯỞNG -->
+
+<div class="award">
+
+<h3>🧭 ĐỘI TRƯỞNG ĐẠP GIÓ XUẤT SẮC NHẤT</h3>
+
+<p class="info">
+
+60% số vote của các thí sinh trong chương trình
++
+10% số vote của Khán giả.
+
+</p>
+
+<div class="grid" id="captainGrid"></div>
+
+</div>
+
+
+
+<!-- GIÓ-ER TOÀN NĂNG -->
+
+<div class="award">
+
+<h3>✨ GIÓ-ER TOÀN NĂNG</h3>
+
+<p class="info">
+
+20% số vote của Khán giả quyết định.<br>
+
+03 lượt bình chọn mỗi 24 giờ.
+
+</p>
+
+<div class="grid" id="allroundGrid"></div>
+
+</div>
 
 </div>
 
@@ -401,6 +494,56 @@ createCards("teamGrid",12);
 createCards("championGrid",12);
 
 createCards("runnerGrid",12);
+
+createCards("favoriteGrid",12);
+
+createCards("performanceGrid",7);
+
+createCards("captainGrid",7);
+
+createCards("allroundGrid",5);
+  const endTime=new Date();
+
+endTime.setDate(endTime.getDate()+7);
+
+function updateCountdown(){
+
+const now=new Date();
+
+let diff=endTime-now;
+
+if(diff<=0){
+
+document.getElementById("countdown").innerHTML=
+"🔒 ĐÃ ĐÓNG CỔNG BÌNH CHỌN";
+
+return;
+
+}
+
+const day=Math.floor(diff/86400000);
+
+diff%=86400000;
+
+const hour=Math.floor(diff/3600000);
+
+diff%=3600000;
+
+const min=Math.floor(diff/60000);
+
+diff%=60000;
+
+const sec=Math.floor(diff/1000);
+
+document.getElementById("countdown").innerHTML=
+
+`${day} ngày ${hour} giờ ${min} phút ${sec} giây`;
+
+}
+
+setInterval(updateCountdown,1000);
+
+updateCountdown();
 
 </script>
 
